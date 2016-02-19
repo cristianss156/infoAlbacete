@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Encuentra toda la información sobre lugares de interés de la ciudad de Albacete de forma comoda y sencilla. Bares, bibliotecas, colegios, polideportivos, instituciones, turismo y mas en un mismo sitio.">
+	<meta name="keywords" content="infoalba,bares,visitar,fiesta,lugares de fiesta,turismo,turístico,restaurantes,piscinas,polideportivos,colegios,ciudad,albacete,información,ocio,deportes,cultura,educación,lugares,interés,turismo albacete,turismo de albacete,turismo en albacete,turismo albacete provincia,turismo en albacete provincia,ocio albacete,ocio en albacete">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<meta name="theme-color" content="#7B1FA2">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:300italic,500,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/styleMedia.css">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.purple-pink.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+	<script type="text/javascript" src="js/animaciones.js"></script>
+	<script type="text/javascript" src="js/ajaxIndex.js"></script>
+	<script type="text/javascript" src="js/ajaxBuscar.js"></script>
+	<script type="text/javascript" src="js/ajaxCategorias.js"></script>
+	<script type="text/javascript" src="js/ajaxGuardarSitios.js"></script>
+	<script type="text/javascript" src="js/sha1.js"></script>
+	<link rel="icon" type="image/png" href="imagenes/icono_infoAlba.png">
+	<title>Info Albacete</title>
+</head>
+<body onload="mostrarInicio()">
+	<header id="cabecera">
+		<div id="contenedorImg"><i id="imagen" class="menu material-icons">menu</i></div>
+		<div id="contenedorTitulo"><span id="titulo"></span></div>
+		<div id="filtros" class="select">
+			<div id="itemsFiltros" class="container_items"></div>
+			<div id="filtrosImg"><i class="material-icons">arrow_drop_down</i></div>
+		</div>
+		<div id="search"><i class="material-icons">search</i></div>
+		<div id="contenedorBuscar">
+			<div id="botonBuscar" onclick="buscarDatos(buscar.value)"><i class="material-icons">search</i></div>
+			<input id="buscar" type="text" maxlength="100" placeholder="Buscar..."/>
+			<div id="contenedorVaciar" onclick="vaciar()"><i class="material-icons">clear</i></div>
+		</div>
+		<div id="contentRecentSearch"></div>
+		<div id="options"><i class="material-icons">more_vert</i></div>
+		<div id="listOptions">
+			<div id="opcionSesion" class="itemOption" onclick="iniciarSesion()"><span id="spanSesion">Iniciar sesión</span></div>
+		</div>
+	</header>
+	<nav id="menu">
+		<div id="left_drawer">
+			<div id="drawerTitle"><span id="title">Info Albacete</span></div>
+			<div class="items">
+				<div id="inicio" class="contenedorItem" onclick="verCategoria('Inicio'),reiComp(true)">
+					<div class="menuImg"><i class="material-icons">home</i></div>
+					<div class="item"><span>Inicio</span></div>
+				</div>
+				<div id="Cultura" class="contenedorItem" onclick="verCategoria('Cultura'),reiComp(true)">
+					<div class="menuImg"><i class="material-icons">book</i></div>
+					<div class="item"><span>Cultura</span></div>
+				</div>
+				<div id="Deportes" class="contenedorItem" onclick="verCategoria('Deportes'),reiComp(true)">
+					<div class="menuImg"><i class="material-icons">directions_walk</i></div>
+					<div class="item"><span>Deportes</span></div>
+				</div>
+				<div id="Educacion" class="contenedorItem" onclick="verCategoria('Educacion'),reiComp(true)">
+					<div class="menuImg"><i class="material-icons">school</i></div>
+					<div class="item"><span>Educación</span></div>
+				</div>
+				<div id="Instituciones" class="contenedorItem" onclick="verCategoria('Instituciones'),reiComp(true)">
+					<div class="menuImg"><i class="material-icons">account_balance</i></div>
+					<div class="item"><span>Instituciones</span></div>
+				</div>
+				<div id="Ocio" class="contenedorItem" onclick="verCategoria('Ocio'),reiComp(true)">
+					<div class="menuImg"><i class="material-icons">local_bar</i></div>
+					<div class="item"><span>Ocio</span></div>
+				</div>
+				<div id="Salud" class="contenedorItem" onclick="verCategoria('Salud'),reiComp(true)">
+					<div class="menuImg"><i class="material-icons">local_hospital</i></div>
+					<div class="item"><span>Salud</span></div>
+				</div>
+				<div id="Transportes" class="contenedorItem" onclick="verCategoria('Transportes'),reiComp(true)">
+					<div class="menuImg"><i class="material-icons">directions_bus</i></div>
+					<div class="item"><span>Transportes</span></div>
+				</div>
+			</div>
+			<div class="subitems">
+				<div class="contenedorSubItem" id="acercaDe"><div class="subitem"><span>Acerca de</span></div></div>
+				<div class="contenedorSubItem" id="opinion"><div class="subitem"><span>Opinión</span></div></div>
+			</div>
+		</div>
+	</nav>
+	<div id="contDescp">
+		<div id="descripcion">
+			<h5>¡Bienvenido a Info Albacete!</h5>
+			<p id="textodescripcion">Encuentra toda la información sobre lugares de interés de la ciudad de Albacete de forma comoda y sencilla. Bares, bibliotecas, colegios, polideportivos, instituciones, turismo y mas en un mismo sitio.</p>
+			<div id="contEntendido"><button id="botonEntendido" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">done</i>Entendido</button></div>
+		</div>
+	</div>
+	<div id="contenedor"></div>
+	<div id="contenedorArriba">
+		<div id="arriba" onclick="arriba()" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"><i class="material-icons">keyboard_arrow_up</i></div>
+	</div>
+	<div id="carga">
+		<div id="imgCarga"><img src="imagenes/icono_infoAlba.png" alt="Info Albacete"/></div>
+		<div id="titCarga"><h2>Info Abacete</h2></div>
+	</div>
+	<div id="cont_map"><div id="map"></div></div>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAO5Co83PNPP7TVXYbpJSB3gt6m8eVsqRo&signed_in=true"></script>
+	<script>
+  		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  		ga('create','UA-63630564-2','auto');
+  		ga('send','pageview');
+	</script>
+</body>
+</html>

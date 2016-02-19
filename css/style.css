@@ -1,0 +1,637 @@
+html{overflow:hidden;}
+body{
+	margin:0;
+	width:100%;
+	height:100%;
+	font-family:'Roboto',sans-serif;
+	background-color:#E6E6E6;}
+/*estilo de la cabecera de la aplicación*/
+#cabecera{
+	z-index:4;
+	position:fixed;
+	background-color:#9C27B0;
+	width:calc(100% - 250px);
+	height:56px;
+	margin-left:250px;
+	box-shadow:0 3px 5px rgba(0,0,0,0.26);
+	transition-duration:0.25s;}
+/*estilo del botón de menu*/
+#contenedorImg{
+	cursor:pointer;
+	float:left;
+	margin:3px 0 0 0;
+	width:50px;
+	height:50px;
+	border-radius:50px;
+	transition-duration:0.15s;}
+#contenedorImg:active{background-color:rgba(0,0,0,0.1);}
+#contenedorImg i,#options i,#search i{float:left;color:white;margin:13px 0 0 13px;}
+/*estilo del titulo de la aplicación*/
+#contenedorTitulo{
+	overflow:hidden;
+	white-space:nowrap;
+	display:block;
+	float:left;
+	margin-left:12px;
+	height:56px;
+	width:calc(100% - 179px);
+	transition-duration:0.15s;}
+#titulo{
+	float:left;
+	margin-top:9px;
+	color:white;
+	font-size:24px;
+	line-height:1.5;}
+/*estilo del botón para activar la barra de busqueda*/
+#search{
+	cursor:pointer;
+	position:fixed;
+	right:50px;
+    margin-top:3px;
+    width:50px;
+    height:50px;
+    border-radius:50px;
+    transition-duration:0.15s;}
+#search:active{background-color:rgba(0,0,0,0.1);}
+/*estilo del boton para mostrar la opcion de cerrar sesión en la cabecera*/
+#options{
+	cursor:pointer;
+	position:fixed;
+	right:0;
+	margin-top:3px;
+	width:50px;
+	height:50px;
+	border-radius:50px;
+	transition-duration:0.15s;}
+#options:active{background-color:rgba(0,0,0,0.1);}
+#listOptions{
+	z-index:5;
+	overflow:hidden;
+	position:fixed;
+	display:none;
+	right:5px;
+	margin-top:3px;
+	width:155px;
+	background-color:white;
+	border-radius:2px;
+	box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 5px 0 rgba(0,0,0,0.23);}
+.itemOption{
+	cursor:pointer;
+	float:left;
+	width:155px;
+	height:50px;
+	transition-duration:0.15s;}
+.itemOption span{
+	float:left;
+	margin:15px 0 0 8%;
+	width:92%;
+	height:20px;
+	color:grey;
+	font-size:17px;}
+.itemOption:hover{background-color:#E0E0E0;}
+/*estilo de la barra de busqueda*/
+#contenedorBuscar{
+	overflow:hidden;
+	display:none;
+	float:left;
+	margin-top:8px;
+	height:38px;
+	width:calc(100% - 76px);
+	background-color:white;
+	color:grey;
+	box-shadow:0 8px 10px rgba(0,0,0,0.26);}
+#botonBuscar{
+	cursor:pointer;
+	float:left;
+	height:38px;
+	margin-left:5px;
+	width:38px;
+	border-radius:38px;}
+#botonBuscar i,#contenedorVaciar i,.recentImg i,.recentBorrar i{float:left;margin-top:7px;margin-left:7px;}
+#contenedorBuscar input[type="text"]{
+	outline:0;
+	float:left;
+	border:none;
+	margin-left:5px;
+	width:calc(100% - 91px);
+	height:36px;
+	color:#616161;
+	font-size:20px;}
+#contenedorVaciar{
+	cursor:pointer;
+	display:none;
+	float:right;
+	margin-right:5px;
+	height:38px;
+	width:38px;
+	border-radius:38px;}
+#contenedorVaciar:active,#botonBuscar:active{background-color:rgba(0,0,0,0.2);}
+#contentRecentSearch{
+	overflow:hidden;
+	display:none;
+	float:left;
+	width:calc(100% - 76px);
+	max-height:195px;
+	border-radius:0 0 2px 2px;
+	background-color:white;
+	color:grey;
+	box-shadow:0 8px 10px rgba(0,0,0,0.26);}
+.contEventBuscarRecent{float:left;height:38px;width:calc(100% - 43px);}
+.recentSearchItem{
+	cursor:pointer;
+	float:left;
+	width:100%;
+	height:38px;
+	border-top:1px solid #BDBDBD;
+	transition-duration:0.15s;}
+.recentSearchItem:hover{background-color:#E0E0E0;}
+.recentImg{
+	float:left;
+	margin-left:5px;
+	height:38px;
+	width:38px;
+	border-radius:38px;}
+.recentBorrar{
+	cursor:pointer;
+	float:right;
+	margin-right:5px;
+	height:38px;
+	width:38px;
+	border-radius:38px;}
+.recentBorrar:hover{background-color:rgba(0,0,0,0.2);}
+.recent{float:left;margin:9px 0 0 5px;height:20px;font-size:18px;}
+/*estilo de la subcabecera de la aplicación*/
+.subheader{
+	z-index:3;
+	position:fixed;
+	float:left;
+	margin:56px 0 0 250px;
+	width:calc(100% - 250px);
+	height:46px;
+	background-color:#7B1FA2;
+	box-shadow:0 3px 5px rgba(0,0,0,0.26);
+	transition-duration:0.15s;}
+#VolverBuscar{float:left;margin:5px 0 0 40px;color:white;}
+/*estilo del menu lateral y de los elementos que lo forman*/
+#menu{
+	z-index:5;
+	position:fixed;
+	clear:both;
+	width:250px;
+	height:100%;
+	background:linear-gradient(to left,rgba(0,0,0,0.1),rgba(0,0,0,0.5));
+	transition-duration:0.25s;}
+#left_drawer{
+	position:fixed;
+	overflow:hidden;
+	float:left;
+	margin-left:0;
+	height:100%;
+	width:250px;
+	background-color:white;
+	box-shadow:3px 0 5px 0 rgba(0,0,0,0.26);
+	transition-duration:0.5s;}
+#drawerTitle{
+	position:fixed;
+	z-index:2;
+	width:250px;
+	height:112px;
+	background-color:#9C27B0;
+	box-shadow:0 3px 5px rgba(0,0,0,0.26);}
+#title{
+	float:left;
+	margin:18px 0 0 20px;
+	height:20px;
+	color:white;
+	font-size:26px;}
+#contUser{
+	float:left;
+	margin:25px 0 0 5px;
+	height:42px;
+	width:calc(100% - 10px);
+	color:white;}
+#imgUser{float:left;height:100%;width:42px;}
+#imgUser i{margin:9px 0 0 9px;}
+#nameUser{
+	overflow:hidden;
+	float:left;
+	height:100%;
+	margin-left:5px;
+	width:calc(100% - 47px);}
+#nameUser span{
+	float:left;
+	width:100%;
+	margin-top:11px;
+	font-size:13px;
+	height:20px;}
+.items{
+	z-index:1;
+	overflow:hidden;
+	overflow-y:scroll;
+	position:fixed;
+	padding-bottom:4%;
+	top:112px;
+	color:grey;
+	bottom:104px;
+	width:250px}
+.contenedorItem{
+	cursor:pointer;
+	float:left;
+	width:100%;
+	height:60px;
+	transition-duration:0.15s;}
+.item{float:left;width:calc(100% - 50px);height:60px;}
+.item span{float:left;margin:20px 0 0 20px;font-size:20px;}
+.subitems{
+	z-index:2;
+	position:fixed;
+	height:104px;
+	width:250px;
+	bottom:0;
+	background-color:white;
+	box-shadow:0 -3px 5px rgba(0,0,0,0.26);}
+.contenedorSubItem{
+	cursor:pointer;
+	float:left;
+	width:100%;
+	height:42px;
+	transition-duration:0.15s;}
+.subitem{float:left;width:80%;height:42px;color:grey;}
+.subitem span{float:left;margin:11px 0 0 20px;height:20px;font-size:17px;}
+.menuImg{float:left;width:50px;height:60px;}
+.menuImg i{float:left;margin:18px 0 0 13px;}
+.contenedorItem:hover,.contenedorSubItem:hover{background-color:#E0E0E0;}
+#inicio,#acercaDe{margin-top:10px;}
+/*estilo del contenedor principal de la aplicación*/
+#contenedor{z-index:3;float:left;margin:0 0 2% 250px;width:calc(100% - 250px);}
+/*estilo de los subtitulos de cada categoría*/
+.subheaderTitle{
+	z-index:3;
+	clear:both;
+	position:relative;
+	margin-top:20px;
+	float:left;
+	width:100%;
+	height:50px;}
+.textSubH{
+	float:left;
+	color:grey;
+	height:20px;
+	font-size:20px;
+	margin:15px 0 0 4%;}
+.masCat{float:right;margin:7px 4% 0 0!important;}
+/*estilo de las tarjetas de la aplicación y de los elementos que las forman*/
+.tarjetas{
+	z-index:3;
+	position:relative;
+	cursor:pointer;
+	overflow:hidden;
+	float:left;
+	margin:20px 0 0 4%;
+	width:28%;
+	height:265px;
+	border-radius:2px;
+	box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 5px 0 rgba(0,0,0,0.23);
+	transition-duration:0.5s;}
+.tarjetas:hover{box-shadow:0 10px 25px 0 rgba(0,0,0,0.16),0 10px 25px 0 rgba(0,0,0,0.23);}
+.heroImg{
+	overflow:hidden;
+	float:left;
+	width:100%;
+	height:100%;
+	background-color:white;}
+.heroImg img{width:100%;height:100%;}
+.info{
+	float:left;
+	width:100%;
+	margin-top:-110px;
+	height:110px;
+	color:white;
+	background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.9));}
+.infoTitulo{
+	position:relative;
+	overflow:hidden;
+	float:left;
+	top:14px;
+	left:17px;
+	font-weight:bold;
+	width:91%;
+	height:41px;
+	font-size:20px;}
+.infoDatos{
+	cursor:pointer;
+	position:relative;
+	overflow:hidden;
+	white-space:nowrap;
+	float:left;
+	left:23px;
+	top:10px;
+	width:89%;
+	font-size:14px;
+	transition-duration:0.15s;}
+.infoTipo{
+	clear:both;
+	position:relative;
+	float:right;
+	right:17px;
+	top:18px;
+	color:#E1BEE7;
+	font-size:14px;}
+.volver{
+	display:none;
+	position:relative;
+	clear:both;
+	float:left;
+	left:17px;
+	top:60px;}
+.botonSitio{
+	z-index:4;
+	position:relative;
+	float:right;
+	right:calc(15% + 20px);
+	top:-110px;}
+.comentar{
+	clear:both;
+	position:relative;
+	float:left;
+	left:17px;
+	margin-top:60px!important;}
+/*estilo del contenedor que muestra distintos mensajes a lo largo de la aplicación*/
+#mensaje_info{
+	z-index:7;
+	position:fixed;}
+#informacion{
+	position:fixed;
+	overflow:hidden;
+	width:28%;
+	height:auto;
+	bottom:-100px;
+	left:36%;
+	background-color:#323232;
+	border-radius:2px 2px 0 0;}
+#mensaje{float:left;width:calc(100% - 30px);color:white;font-size:17px;margin: 15px 15px 15px 15px;}
+/*estilo del cuadro de dialogo con información de la aplicación, del formulario de opiniones y del inicio de sesion*/
+#contenedorAcerca,#contenedorOpinion,#contenedorComentario{
+	z-index:5;
+	position:fixed;
+	clear:both;
+	width:100%;
+	height:100%;
+	background-color:rgba(0,0,0,0.5);
+	transition-duration:0.15s;}
+#acercaDialog,#contenedorFormOpinion,#contenedorFormComent{
+	float:left;
+	margin:95px 0 0 34%;
+	width:32%;
+	background-color:white;
+	border-radius:2px;
+	box-shadow:0 10px 10px 5px rgba(0,0,0,0.26);}
+#TituloDialog{
+	float:left;
+	margin:15px 0 15px 4%;
+	width:96%;
+	color:#7B1FA2;
+	font-size:24px;}
+#desDialog{
+	float:left;
+	padding-left:8%;
+	width:92%;
+	height:160px;
+	color:grey;}
+#acercaDialog button{clear:both;float:right;margin:5px 20px 15px 0;}
+#cancelarOpinion,#cancelarComent{float:right;margin:10px 20px 15px 0;}
+#enviarOpinion,#enviarComent{clear:both;float:right;margin:10px 20px 0 0;}
+input[type="email"],input[type="password"]{
+	border:none;
+	float:left;
+	padding-left:5px;
+	margin:0 0 20px 10px;
+	font-size:16px;
+	border-bottom:2px solid grey;
+	transition-duration:0.15s;}
+input[type="email"]:focus,input[type="password"]:focus{outline:0;border-bottom:2px solid rgb(255,64,129);}
+#contenedorFormOpinion label,#contenedorFormComent label{float:left;clear:both;margin-left:25px;}
+#contenedorFormOpinion textarea,#contenedorFormComent textarea{
+	clear:left;
+	float:left;
+	margin:10px 0 0 50px;
+	max-width:260px;
+	min-width:260px;
+	min-height:155px;
+	max-height:155px;
+	font-family:'Roboto',sans-serif;
+	border:none;
+	padding-left:5px;
+	font-size:16px;
+	border-bottom:2px solid grey;}
+#contenedorFormOpinion textarea:focus,#contenedorFormComent textarea:focus{outline:0;border-bottom:2px solid rgb(255,64,129);}
+#contenedorFormOpinion h2,#contenedorFormComent h2{
+	float:left;
+	margin:15px 0 15px 4%;
+	width:96%;
+	font-size:25px;
+	color:#7B1FA2;}
+/*estilo boton para volver arriba*/
+#contenedorArriba{
+	z-index:4;
+	overflow:hidden;
+	position:fixed;
+	bottom:-70px;
+	right:18px;
+	border-radius:56px;
+	box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 5px 0 rgba(0,0,0,0.23);
+	transition-duration:0.5s;}
+/*estilo de los filtros de cada categoria de la aplicación y de sus componentes*/
+#filtros{display:none;}
+.select{
+	z-index:1;
+	overflow:hidden;
+	float:left;
+	margin:8px 0 0 66px;
+	width:150px;
+	height:40px;
+	transition-duration:0.15s;}
+.container_items{
+	overflow:hidden;
+	float:left;
+	margin-top:0;
+	width:110px;
+	height:auto;}
+#filtrosImg{
+	cursor:pointer;
+	float:left;
+	width:40px;
+	height:40px;
+	transition-duration:0.15s;}
+#filtrosImg i{float:left;color:white;margin:8px 0 0 8px;}
+.select_item_empy{
+	z-index:4;
+	cursor:pointer;
+	position:relative;
+	width:100%;
+	height:40px;}
+.select_item{
+	z-index:3;
+	cursor:pointer;
+	position:relative;
+	width:100%;
+	height:40px;
+	transition-duration:0.15s;}
+.select_item span{
+	float:left;
+	margin-top:9px;
+	padding-left:3%;
+	width:85%;
+	font-size:24px;
+	color:white;}
+.select:hover{background-color:rgba(0,0,0,0.1);}
+.active{
+	z-index:2;
+	overflow:hidden;
+	float:left;
+	margin:8px 0 0 66px;
+	width:150px;
+	height:auto;
+	border-radius:2px;
+	background-color:white;
+	box-shadow:0 5px 10px 0 rgba(0,0,0,0.16),0 5px 10px 0 rgba(0,0,0,0.23);}
+.active span{color:grey;font-size:18px;margin-top:9px;}
+.active .select_item:hover{background-color:rgba(0,0,0,0.1);}
+/*estilo de la pantalla de carga de la aplicación*/
+#carga{
+	z-index:7;
+	position:fixed;
+    clear:both;
+    width:100%;
+    height:100%;
+    background-color:#F5F5F5;}
+#imgCarga{margin:12% auto 0 auto;width:200px;}
+#imgCarga img{max-width:100%;}
+#titCarga{width:100%;margin-top:40px;}
+#titCarga h2{
+	float:left;
+	width:100%;
+	text-align:center;
+	color:#9E9E9E;
+	font-weight:bold;
+	font-size:50px;}
+/*estilo de la ventana de inicio de sesión*/
+#contIncSesion{
+	z-index:6;
+	position:fixed;
+    clear:both;
+    width:100%;
+    height:100%;
+	background-color:rgba(0,0,0,0.5)}
+#sesionDialog{
+	overflow:hidden;
+	margin:30px auto 0 auto;
+	width:350px;
+	height:450px;
+	border-radius:2px;
+	box-shadow:0 10px 10px 5px rgba(0,0,0,0.26);
+	transition-duration:0.25s;}
+#cabSesion{
+	float:left;
+	background-color:#7B1FA2;
+	width:100%;
+	height:225px;
+	transition-duration:0.25s;}
+#cabSesion span{
+	float:left;
+	margin-top:100px;
+	width:100%;
+	height:20px;
+	color:white;
+	font-size:26px;
+	text-align:center;}
+#formSesion{float:left;background-color:white;width:100%;height:225px;}
+#contEmail,#contPasswd{float:left;margin:15px 0 0 5%;width:90%;}
+#contEmail label,#contPasswd label{float:left;}
+#password,#emailSesion{width:calc(100% - 25px);}
+#formCodigo{background-color:white;float:left;width:100%;height:100%;}
+#titCodigo{
+	float:left;
+	margin:10px 0 10px 0;
+	width:100%;
+	height:20px;
+	text-align:center;
+	font-size:18px;
+	color:#7B1FA2;}
+#pCodigo{float:left;margin:0 0 10px 4%;width:92%;}
+#introCod{
+	border:none;
+	float:left;
+	margin:0 0 10px 4%;
+	width:90%;
+	padding-left:2%;
+	font-size:16px;
+	border-bottom:2px solid grey;
+	transition-duration:0.15s;}
+#introCod:focus{outline:0;border-bottom:2px solid rgb(255,64,129);}
+#iniciarSesion,#enviarCodigo{clear:both;float:right;margin-top:15px;right:20px;}
+#cancelarIncSesion{float:right;right:40px;margin-top:15px;}
+/*estilo del mensaje de bienvenida al iniciar sesión*/
+#contBienvenida{
+	z-index:7;
+	position:fixed;
+	top:-80px;
+	clear:both;}
+#bienvenida{
+	position:fixed;
+	float:left;
+	margin-left:calc((100% - 270px)/2);
+	width:270px;
+	height:50px;
+	border-radius:100px;
+	background-color:white;
+	box-shadow:0 5px 10px rgba(0,0,0,0.26);}
+#bienvenida span{
+	float:left;
+	width:80%;
+	height:40px;
+	margin:5px 0 0 10%;
+	color:grey;}
+/*estilo de tarjeta de descripción de la aplicación*/
+#contDescp{z-index:3;float:left;margin:56px 0 0 250px;width:calc(100% - 250px);}
+#descripcion{
+	overflow:hidden;
+	float:left;
+	margin:40px 0 0 4%;
+	width:92%;
+	color:white;
+	background-color:#9C27B0;
+	border-radius:2px;
+	box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 5px 0 rgba(0,0,0,0.23);}
+#descripcion h5{margin:16px 0 0 2%;}
+#textodescripcion{margin:16px 0 0 2%;width:96%;}
+#contEntendido{height:46px;width:100%;}
+#botonEntendido{float:right;color:white;margin:5px 5px 0 0;}
+#botonEntendido i{margin-top:-5px;}
+/*estilo del mapa*/
+#cont_map{
+	z-index:6;
+	display:none;
+	position:fixed;
+    clear:both;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.8);}
+#map{
+	float:left;
+	margin:5% 0 0 calc((100% - 550px)/2);
+    width:550px;
+    height:550px;
+    border-radius:2px;
+    box-shadow:0 10px 10px 5px rgba(0,0,0,0.26);}
+#cerrar_map{
+	cursor:pointer;
+	position:fixed;
+    top:3px;
+    right:0;
+    width:50px;
+    height:50px;
+    border-radius:50px;
+    transition-duration:0.15s;}
+#cerrar_map:active{background-color:rgba(255,255,255,0.1);}
+#cerrar_map i{float:right;color:white;margin:13px 13px 0 0;}

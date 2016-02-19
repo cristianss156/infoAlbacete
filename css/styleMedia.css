@@ -1,0 +1,46 @@
+@media only screen and (min-width:1567px){.tarjetas{width:20%;}}
+@media only screen and (max-width:1024px){
+	.tarjetas{width:44%;}
+	#acercaDialog,#contenedorFormOpinion,#sesionDialog,#contenedorFormComent{margin-left:15%;width:70%;}
+	#menu{margin-left:-250px;}
+	#left_drawer{margin-left:-250px;}
+	#cabecera{margin-left:0;width:100%;}
+	.subheader{margin-left:0;width:100%;}
+	#contenedor{margin-left:0;width:100%;}
+	#contDescp{margin-left:0;width:100%;}
+}
+@media only screen and (max-width:735px){
+	.botonSitio{right:20px;top:-265px;}
+}
+@media only screen and (max-width:640px){
+	#contenedor{margin-bottom:0;}
+	#contDescp{width:100%;margin-bottom:0;margin-left:0;margin-top:16px;}
+	#descripcion{width:100%;margin-left:0;border-radius:0;}
+	.subheaderTitle{margin-top:0;}
+	.tarjetas{width:100%;margin-left:0;margin-top:0;height:130px;border-radius:0;background-color:white;box-shadow:none;border-bottom:1px solid #BDBDBD;}
+	.tarjetas:hover{box-shadow:none;}
+	.heroImg{margin-right:20px;margin-left:20px;margin-top:25px;width:80px;height:80px;border-radius:100px;border:1px solid #BDBDBD;}
+	.info{margin-top:-107px;margin-left:120px;width:79%;height:auto;padding-bottom:2%;background:none;}
+	.infoTitulo{height:50px;white-space:normal;color:black;}
+	.infoDatos{height:20px;white-space:normal;color:grey;}
+	.infoDatos:hover{color:#3F51B5;}
+	.infoTipo{right:30px;color:rgb(255,64,129);}
+	#informacion{width:100%;left:0;border-radius:0;}
+	#mensaje{width:calc(100% - 30px);}
+	#acercaDialog,#contenedorFormOpinion,#sesionDialog,#contenedorFormComent{margin-left:1%;width:98%;}
+	#imgCarga{width:150px;margin-top:10%;}
+	#titCarga{margin-top:10px;}
+	#contCirCarga{margin-top:10px;}
+	#map{width:100%;height:100%;margin-top:0;margin-left:0;border-radius:0;}
+	#cerrar_map{margin-right:5px;border-radius:2px;background-color:white;box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 5px 0 rgba(0,0,0,0.23);}
+	#cerrar_map:active{background-color:#ECEFF1;}
+	#cerrar_map i{color:black;}
+}
+@media only screen and (max-width:480px){
+	.infoTitulo{width:180px;height:40px;margin-top:10px;font-size:19px;overflow:hidden;}
+	.infoTipo{right:65px;}
+}
+@media only screen and (max-width:350px){
+	.infoTitulo{width:165px;height:40px;margin-top:12px;font-size:18px;overflow:hidden;}
+	.infoDatos{width:80%;font-size:13px;overflow:hidden;white-space:nowrap;}
+}
